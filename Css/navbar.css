@@ -1,0 +1,104 @@
+/* --- NAVBAR --- */
+.navbar {
+    position: fixed; top: 0; width: 100%; z-index: 1000; padding: 20px 0;
+    background: rgba(0, 0, 0, 0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: 0.4s ease;
+
+}
+
+.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 30px; }
+.nav-logo { font-size: 1.8rem; font-weight: 800; color: #fff; text-decoration: none; }
+.nav-menu { display: flex; list-style: none; gap: 35px; align-items: center; }
+.nav-link { color: #fff; text-decoration: none; transition: 0.4s ease; opacity: 0.8; }
+.nav-link:hover { color: #ffcc00; opacity: 1; }
+.nav-btn { background: #ffcc00; color: #1a472a; padding: 12px 25px; border-radius: 12px; text-decoration: none; font-weight: 800; transition: 0.4s ease; }
+.nav-btn:hover {
+    background: #fff;
+    transform: translateY(-3px); /* Se ridică puțin */
+    box-shadow: 0 5px 15px rgba(255, 204, 0, 0.3);
+}
+
+
+
+/* --- 1. SMARTPHONE ( < 768px ) --- */
+@media (max-width: 767px) {
+    .navbar {
+        padding: 10px 0 !important;
+        backdrop-filter: blur(15px); /* Blur mai intens pentru lizibilitate pe mobil */
+        -webkit-backdrop-filter: blur(15px);
+    }
+
+    .nav-container {
+        padding: 0 15px !important;
+        justify-content: space-between !important;
+    }
+
+    .nav-logo {
+        font-size: 1.1rem !important;
+        font-weight: 800 !important;
+    }
+
+    /* Meniul de mobil (Link-urile) */
+    .nav-menu {
+        gap: 8px !important; /* Spațiu mic între link-uri să încapă toate pe un rând */
+    }
+
+    .nav-link {
+        font-size: 0.75rem !important;
+        padding: 5px 2px !important;
+    }
+
+    /* Butonul de Contact pe mobil */
+    .nav-btn {
+        padding: 6px 10px !important;
+        font-size: 0.7rem !important;
+        border-radius: 8px !important;
+    }
+}
+
+/* --- 3. TABLET ( 768px - 1023px ) --- */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .navbar {
+        padding: 15px 0 !important;
+    }
+    .nav-container {
+        max-width: 95% !important;
+    }
+    .nav-menu {
+        gap: 20px !important;
+    }
+}
+
+/* --- 4. DESKTOP ( ≥ 1024px ) --- */
+@media (min-width: 1024px) {
+    .navbar {
+        padding: 20px 0 !important;
+        transition: all 0.4s ease;
+    }
+
+    .nav-container {
+        max-width: 1200px !important;
+        margin: 0 auto;
+    }
+
+    .nav-link {
+        font-size: 1rem !important;
+        position: relative;
+    }
+
+    /* Efect de hover elegant pentru desktop */
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #ffcc00;
+        transition: 0.3s;
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
+    }
+}

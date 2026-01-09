@@ -1,0 +1,260 @@
+/* SECȚIUNEA CATEGORII BUTAȘI */
+.categorii-butasi-section {
+    padding: 130px 20px;
+    text-align: center;
+    color: white;
+}
+
+.categorii-title {
+    font-size: 2.8rem;
+    color: #ffcc00;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.categorii-subtitle {
+    color: #ddd;
+    margin-bottom: 70px;
+    font-weight: 300;
+}
+
+/* GRILA CU CELE DOUĂ CARDURI */
+.categorii-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Spațiu între cele două imagini */
+    flex-wrap: wrap; /* Pentru responsive */
+    max-width: 1000px; /* Lățimea maximă a grilei */
+    margin: 0 auto;
+}
+
+/* STILUL CARDURILOR DE IMAGINI */
+.categorii-card {
+    position: relative;
+    width: 450px; /* Lățimea fiecărui card */
+    height: 350px; /* Înălțimea fiecărui card */
+    border-radius: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    transition: transform 0.4s ease;
+}
+
+.categorii-card:hover {
+    transform: translateY(-15px);
+}
+
+.categorii-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(8px) brightness(0.6); /* Imaginea e inițial blurată și întunecată */
+    transition: filter 0.6s ease;
+}
+
+/* EFECTUL DE HOVER */
+.categorii-card:hover .categorii-img {
+    filter: blur(0) brightness(1); /* Devine clară și luminoasă la hover */
+}
+
+.categorii-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4); /* Strat transparent peste blur */
+    border-radius: 30px;
+    transition: background 0.6s ease;
+}
+
+
+
+
+ 
+
+ .categorii-card:hover .categorii-overlay { 
+    background: rgba(0, 0, 0, 0); /* Stratul transparent dispare la hover */
+}
+
+.categorii-overlay h3 {
+    font-size: 2.2rem;
+    color: #ffcc00;
+    margin-bottom: 10px;
+    opacity: 1; /* Textul e vizibil inițial */
+    transition: opacity 0.6s ease;
+}
+
+.categorii-overlay p {
+    font-size: 1.1rem;
+    color: #fff;
+    opacity: 0.8;
+    transition: opacity 0.6s ease;
+}
+
+/* TEXTUL DISPARE LA HOVER (sau devine mai puțin vizibil) */
+.categorii-card:hover .categorii-overlay h3,
+.categorii-card:hover .categorii-overlay p {
+    opacity: 0; 
+}
+
+
+
+
+.categorii-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 90%; /* Lasă doar o mică margine fină de 5% pe lateral */
+    max-width: 1300px; /* Previne întinderea excesivă pe monitoare ultra-wide */
+    margin: 0 auto;
+}
+
+
+.categorii-card {
+    flex: 1; /* Face ambele casete să fie egale și să crească automat */
+    height: 500px; /* Le facem mai înalte pentru PC */
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+#soiuri-categorii {
+    scroll-margin-top: 70px; /* Ajustează în funcție de înălțimea navbar-ului tău */
+}
+
+
+
+/* --- RESETARE LINK-URI CARDURI --- */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    flex: 1;
+}
+
+
+
+
+
+
+
+
+
+/* Stil pentru textul de îndrumare */
+.tap-hint {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffcc00; /* Galbenul tău specific pentru evidențiere */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 8px 15px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 204, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+/* Efect de plutire pentru săgeată */
+.tap-hint i {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+/* Când utilizatorul pune mouse-ul pe card (Desktop) */
+.categorii-card:hover .tap-hint {
+    background: #ffcc00;
+    color: #000;
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+}
+
+.categorii-card:hover .tap-hint i {
+    transform: translateX(5px);
+}
+
+/* OPTIMIZARE MOBIL - Să fie foarte vizibil fără hover */
+@media (max-width: 767px) {
+    .tap-hint {
+        font-size: 0.8rem;
+        padding: 5px 12px;
+        background: rgba(255, 204, 0, 0.15); /* Puțin mai vizibil pe mobil */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SMARTPHONE < 768px */
+@media (max-width: 767px) {
+  #soiuri {
+    background: linear-gradient(rgba(0,0,0,0.7), rgb(0, 0, 0)), 
+                url("../Img/SoiuriImagine.jpg") center / cover no-repeat !important; 
+    /* Am scos 'fixed' pe mobil pentru că Safari/iPhone nu îl suportă bine */
+  }
+}
+
+
+
+
+/* ============================= */
+/* TABLET                        */
+/* ≥ 768px                       */
+/* ============================= */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+
+  .soiuri {
+    background: url("../Img/rand.jpg") center / cover no-repeat;
+  }
+
+}
+
+
+/* DESKTOP ≥ 1024px */
+@media (min-width: 1024px) {
+  /* Folosim ID-ul din HTML (#soiuri) sau clasa corectă (.categorii-butasi-section) */
+  #soiuri {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url("../Img/grape.jpg") center / cover no-repeat fixed !important;
+  }
+}
