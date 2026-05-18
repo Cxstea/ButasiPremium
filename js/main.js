@@ -223,12 +223,134 @@ function initTestimonialCarousel() {
     }, 6000);
 }
 
+
+// ========== PRODUCT SLIDER with Browser History ==========
+function initProductSlider() {
+    const slider = document.querySelector('.products-slider');
+    if (!slider) return;
+
+    const track = slider.querySelector('.products-track');
+    const slides = track ? track.children : [];
+    if (!slides.length) return;
+
+    const prevBtn = slider.querySelector('.slider-prev');
+    const nextBtn = slider.querySelector('.slider-next');
+    const dotsContainer = slider.querySelector('.slider-dots');
+    const counter = slider.querySelector('.slider-counter');
+
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    const pageId = slider.dataset.page || 'shop';
+
+    // Create dots
+    if (dotsContainer) {
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('button');
+            dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', 'Pagina ' + (i + 1));
+            dot.addEventListener('click', () => goToSlide(i, true));
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    const dots = dotsContainer ? dotsContainer.children : [];
+
+    function updateNav() {
+        if (prevBtn) prevBtn.disabled = currentSlide === 0;
+        if (nextBtn) nextBtn.disabled = currentSlide === totalSlides - 1;
+        if (counter) counter.textContent = (currentSlide + 1) + ' / ' + totalSlides;
+
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].classList.toggle('active', i === currentSlide);
+        }
+
+        // Update URL hash for direct linking
+        if (currentSlide > 0) {
+            window.history.replaceState({ slide: currentSlide, page: pageId }, '', '#slide-' + (currentSlide + 1));
+        } else {
+            window.history.replaceState({ slide: 0, page: pageId }, '', window.location.pathname + window.location.search);
+        }
+    }
+
+    function goToSlide(index, pushHistory) {
+        currentSlide = Math.max(0, Math.min(index, totalSlides - 1));
+        track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+        updateNav();
+
+        // Push state to browser history so back/forward buttons work
+        if (pushHistory && currentSlide > 0) {
+            window.history.pushState({ slide: currentSlide, page: pageId }, '', '#slide-' + (currentSlide + 1));
+        }
+    }
+
+    function nextSlide() {
+        if (currentSlide < totalSlides - 1) {
+            goToSlide(currentSlide + 1, true);
+        }
+    }
+
+    function prevSlide() {
+        if (currentSlide > 0) {
+            goToSlide(currentSlide - 1, true);
+        }
+    }
+
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', (e) => {
+        if (e.state && e.state.page === pageId) {
+            currentSlide = e.state.slide || 0;
+            track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+            updateNav();
+        }
+    });
+
+    // Touch swipe
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let touchStartY = 0;
+
+    track.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    track.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diffX = touchStartX - touchEndX;
+        const diffY = Math.abs(e.changedTouches[0].screenY - touchStartY);
+
+        // Only trigger if horizontal swipe is greater than vertical
+        if (Math.abs(diffX) > 50 && Math.abs(diffX) > diffY) {
+            if (diffX > 0) nextSlide();
+            else prevSlide();
+        }
+    }, { passive: true });
+
+    // Check URL hash on load
+    const hash = window.location.hash;
+    if (hash && hash.startsWith('#slide-')) {
+        const slideNum = parseInt(hash.replace('#slide-', '')) - 1;
+        if (slideNum >= 0 && slideNum < totalSlides) {
+            currentSlide = slideNum;
+            window.history.replaceState({ slide: currentSlide, page: pageId }, '', hash);
+        }
+    }
+
+    updateNav();
+}
+
+
 // ========== INITIALIZE ALL ==========
 document.addEventListener('DOMContentLoaded', () => {
     initCarousel();
     initScrollAnimations();
     initLazyLoad();
     initTestimonialCarousel();
+    initProductSlider();
     handleNavbarScroll();
 });
 
