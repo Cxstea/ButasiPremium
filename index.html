@@ -1,92 +1,100 @@
 <!DOCTYPE html>
 <html lang="ro">
-
 <head>
     <meta charset="UTF-8">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Butași Premium MD – Producător Butași Viță de Vie | GȚ Pușcașu Andrei</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Butași de viță de vie din Moldova, producător din Strășeni, satul Vorniceni. Soiuri de masă și de vin, prindere garantată, calitate premium și preț avantajos.">
-    <meta name="robots" content="index, follow">
-
-    <!-- Google Verification -->
-    <meta name="google-site-verification"
-        content="s4KlY7zMoYkNX90Z4KT1FX3IvEk9r_F55dx97pqpvt0">
-
-    <!-- Open Graph -->
+    <meta name="description" content="Butași de viță de vie din Moldova, producător din Strășeni, satul Vorniceni. Soiuri de masă și de vin, prindere garantată, calitate premium și preț avantajos.">
+    <meta name="keywords" content="butași viță de vie, butași Moldova, butași Strășeni, Vorniceni, viță de vie, soiuri de masă, soiuri de vin, pepinieră viticolă">
+    <meta name="google-site-verification" content="s4KlY7zMoYkNX90Z4KT1FX3IvEk9r_F55dx97pqpvt0">
+    <meta name="language" content="ro">
+    <meta name="geo.region" content="MD">
+    <meta name="geo.placename" content="Vorniceni">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Butași Premium MD">
-    <meta property="og:locale" content="ro_MD">
     <meta property="og:url" content="https://butasipremium.com/">
     <meta property="og:title" content="Butași Premium MD - GȚ Pușcașu Andrei">
-    <meta property="og:description"
-        content="Producător de butași de viță de vie din Strășeni. Calitate premium și prindere garantată.">
+    <meta property="og:description" content="Producător de butași de viță de vie din Strășeni. Calitate premium și prindere garantată.">
     <meta property="og:image" content="https://butasipremium.com/Img/link.jpg">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/Img/gtpa.png">
+    <link rel="icon" type="image/png" href="/Img/grape.jpg">
     <link rel="apple-touch-icon" href="/Img/gtpa.png">
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;800&display=swap"
-        rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="Css/navbar.css">
-    <link rel="stylesheet" href="Css/hero.css">
-    <link rel="stylesheet" href="Css/servicii.css">
-    <link rel="stylesheet" href="Css/activitate.css">
-    <link rel="stylesheet" href="Css/soiuri.css">
-    <link rel="stylesheet" href="Css/contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+<base target="_blank">
 </head>
-
 <body>
 
-    <header class="hero" id="top">
-        <div class="hero-content">
-            <div class="company-container">
-                <h1 class="company-name-huge">GȚ „Pușcașu Andrei”</h1>
-            </div>
-            <h2 class="hero-subtitle">Transformă-ți grădina într-o podgorie de poveste</h2>
-            <p class="hero-description">Butași selecționați pentru recolte bogate și un vin de neuitat.</p>
-            <a href="#soiuri" class="btn-main">Descoperă Soiurile Noastre</a>
-        </div>
-    </header>
-
-    <nav class="navbar">
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#top" class="nav-logo">Acasă</a>
-            <ul class="nav-menu">
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-leaf"></i>
+                Butași Premium
+            </a>
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="#servicii" class="nav-link">Servicii</a></li>
-                <li><a href="#activitate" class="nav-link">Activitatea Noastră</a></li>
-                <li><a href="#soiuri" class="nav-link">Soiuri/Butași</a></li>
+                <li><a href="#activitate" class="nav-link">Activitate</a></li>
+                <li><a href="#soiuri" class="nav-link">Soiuri</a></li>
+                <li><a href="#testimoniale" class="nav-link">Recenzii</a></li>
                 <li><a href="#contact" class="nav-btn">Contact</a></li>
             </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
-    <section id="servicii" class="promo-section">
+    <!-- ========== HERO ========== -->
+    <header class="hero" id="top">
+        <div class="hero-content">
+            <div class="hero-badge fade-in">
+                <i class="fas fa-check-circle"></i>
+                Producător autorizat din Strășeni
+            </div>
+            <h1 class="company-name fade-in stagger-1">GȚ „Pușcașu Andrei”</h1>
+            <h2 class="hero-subtitle fade-in stagger-2">Transformă-ți grădina într-o podgorie de poveste</h2>
+            <p class="hero-description fade-in stagger-2">Butași selecționați pentru recolte bogate și un vin de neuitat. Calitate premium direct de la producător.</p>
+            <a href="#soiuri" class="btn btn-primary fade-in stagger-3">
+                Descoperă Soiurile
+                <i class="fas fa-arrow-right"></i>
+            </a>
+            <div class="hero-stats fade-in stagger-3">
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Prindere</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">40+</span>
+                    <span class="stat-label">Soiuri</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Ani experiență</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== SERVICII ========== -->
+    <section id="servicii" class="section-glass" style="--bg-image: url('../Img/vin.jpg');">
         <div class="content-wrapper">
-            <h2 class="promo-title">Calitate Garantată de Producător</h2>
-            <div class="promo-grid">
-                <div class="promo-card">
-                    <div class="promo-icon">🌿</div>
+            <h2 class="section-title fade-in">Calitate Garantată de Producător</h2>
+            <p class="section-subtitle fade-in">Fiecare butaș este tratat cu grija pe care o merită</p>
+            <div class="servicii-grid">
+                <div class="serviciu-card fade-in stagger-1">
+                    <div class="serviciu-icon">🌿</div>
                     <h3>Prindere 100%</h3>
-                    <p>Aclimatizați special pentru solul nostru și rezistenți la îngheț.</p>
+                    <p>Aclimatizați special pentru solul nostru și rezistenți la îngheț. Garantăm prinderea fiecărui butaș plantat corect.</p>
                 </div>
-                <div class="promo-card">
-                    <div class="promo-icon">🍇</div>
+                <div class="serviciu-card fade-in stagger-2">
+                    <div class="serviciu-icon">🍇</div>
                     <h3>Soiuri Nobile</h3>
-                    <p>Selecție riguroasă pentru gust deosebit și productivitate mare.</p>
+                    <p>Selecție riguroasă pentru gust deosebit și productivitate mare. De la soiuri tradiționale moldovenești la cele mai noi hibrizi.</p>
                 </div>
-                <div class="promo-card">
-                    <div class="promo-icon">🌱</div>
+                <div class="serviciu-card fade-in stagger-3">
+                    <div class="serviciu-icon">🌱</div>
                     <h3>Portaltoi Certificat</h3>
                     <p>Utilizăm doar portaltoi cu certificat de calitate, garantând puritatea biologică și rezistența sporită la boli.</p>
                 </div>
@@ -94,101 +102,232 @@
         </div>
     </section>
 
-    <section id="activitate" class="activitate-section">
+    <!-- ========== ACTIVITATE ========== -->
+    <section id="activitate" class="section-glass" style="--bg-image: url('../Img/vinInspate.jpg');">
         <div class="content-wrapper">
-            <h2 class="promo-title">Activitatea Noastră</h2>
-            <p class="categorii-subtitle" style="margin-bottom: 40px;">Pasiune și muncă dedicată pentru fiecare butaș.</p>
-            <div class="carousel-container">
-                <div class="carousel-track">
-                    <div class="carousel-slide"><img src="poze activitate/1.jpg" alt="Activitate 1"></div>
-                    <div class="carousel-slide"><img src="poze activitate/2.jpg" alt="Activitate 2"></div>
-                    <div class="carousel-slide video-split-slide">
-                        <video autoplay muted loop playsinline class="carousel-video">
-                            <source src="poze activitate/3.mp4" type="video/mp4">
-                        </video>
-                        <video autoplay muted loop playsinline class="carousel-video">
-                            <source src="poze activitate/4.mp4" type="video/mp4">
-                        </video>
+            <h2 class="section-title fade-in">Activitatea Noastră</h2>
+            <p class="section-subtitle fade-in">Pasiune și muncă dedicată pentru fiecare butaș</p>
+            <div class="carousel-wrapper fade-in">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-slide"><img src="poze activitate/1.jpg" alt="Depozit butași"></div>
+                        <div class="carousel-slide"><img src="poze activitate/2.jpg" alt="Pregătire butași"></div>
+                        <div class="carousel-slide video-split">
+                            <video autoplay muted loop playsinline><source src="poze activitate/3.mp4" type="video/mp4"></video>
+                            <video autoplay muted loop playsinline><source src="poze activitate/4.mp4" type="video/mp4"></video>
+                        </div>
+                        <div class="carousel-slide"><img src="poze activitate/5.jpg" alt="Procesare"></div>
+                        <div class="carousel-slide"><img src="poze activitate/6.jpg" alt="Lucru manual"></div>
+                        <div class="carousel-slide"><img src="poze activitate/7.jpg" alt="Seră butași"></div>
+                        <div class="carousel-slide"><img src="poze activitate/8.jpg" alt="Răsadniță"></div>
+                        <div class="carousel-slide"><img src="poze activitate/9.jpg" alt="Câmp viță de vie"></div>
+                        <div class="carousel-slide"><img src="poze activitate/10.jpg" alt="Plantare"></div>
+                        <div class="carousel-slide"><img src="poze activitate/11.jpg" alt="Echipa la lucru"></div>
+                        <div class="carousel-slide"><img src="poze activitate/12.jpg" alt="Recoltă"></div>
+                        <div class="carousel-slide"><img src="poze activitate/13.jpg" alt="Butași finali"></div>
+                        <div class="carousel-slide"><img src="poze activitate/14.jpg" alt="Ambalare"></div>
+                        <div class="carousel-slide"><img src="poze activitate/15.jpg" alt="Livrare"></div>
                     </div>
-                    <div class="carousel-slide"><img src="poze activitate/5.jpg" alt="Activitate 5"></div>
-                    <div class="carousel-slide"><img src="poze activitate/6.jpg" alt="Activitate 6"></div>
-                    <div class="carousel-slide"><img src="poze activitate/7.jpg" alt="Activitate 7"></div>
-                    <div class="carousel-slide"><img src="poze activitate/8.jpg" alt="Activitate 8"></div>
-                    <div class="carousel-slide"><img src="poze activitate/9.jpg" alt="Activitate 9"></div>
-                    <div class="carousel-slide"><img src="poze activitate/10.jpg" alt="Activitate 10"></div>
-                    <div class="carousel-slide"><img src="poze activitate/11.jpg" alt="Activitate 11"></div>
-                    <div class="carousel-slide"><img src="poze activitate/12.jpg" alt="Activitate 12"></div>
-                    <div class="carousel-slide"><img src="poze activitate/13.jpg" alt="Activitate 13"></div>
-                    <div class="carousel-slide"><img src="poze activitate/14.jpg" alt="Activitate 14"></div>
-                    <div class="carousel-slide"><img src="poze activitate/15.jpg" alt="Activitate 15"></div>
+                    <button class="carousel-btn prev" id="prevBtn" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn next" id="nextBtn" aria-label="Următor"><i class="fas fa-chevron-right"></i></button>
                 </div>
-                <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
-                <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+                <div class="carousel-dots" id="carouselDots"></div>
             </div>
         </div>
     </section>
 
-    <section id="soiuri" class="categorii-butasi-section">
-        <div class="full-width-container">
-            <h2 class="categorii-title">Descoperă Selecția Noastră</h2>
-            <p class="categorii-subtitle">Explorează butași de masă și de vin, de cea mai bună calitate.</p>
+    <!-- ========== SOIURI ========== -->
+    <section id="soiuri" class="section-glass" style="--bg-image: url('../Img/grape.jpg');">
+        <div class="content-wrapper">
+            <h2 class="section-title fade-in">Descoperă Selecția Noastră</h2>
+            <p class="section-subtitle fade-in">Explorează butași de masă și de vin, de cea mai bună calitate</p>
             <div class="categorii-grid">
-                <a href="ButasiMasa.html">
-                    <div class="categorii-card">
-                        <img src="Img/masa.jpg" alt="Butasi de Vita de Vie pentru Masa" class="categorii-img">
-                        <div class="categorii-overlay">
-                            <h3>Butași de Masă</h3>
-                            <p>Ideali pentru consum proaspăt și deserturi.</p>
-                            <span class="tap-hint">Apasă pentru detalii <i class="fas fa-arrow-right"></i></span>
-                        </div>
+                <a href="butasi-masa.html" class="categorie-card fade-in stagger-1">
+                    <img src="Img/masa.jpg" alt="Butași de Masă">
+                    <div class="categorie-overlay">
+                        <h3>Butași de Masă</h3>
+                        <p>Ideali pentru consum proaspăt și deserturi</p>
+                        <span class="tap-hint">Vezi soiurile <i class="fas fa-arrow-right"></i></span>
                     </div>
                 </a>
-                <a href="ButasiVin.html">
-                    <div class="categorii-card">
-                        <img src="Img/vinbutoi.jpg" alt="Butasi de Vita de Vie pentru Vin" class="categorii-img">
-                        <div class="categorii-overlay">
-                            <h3>Butași de Vin</h3>
-                            <p>Pentru vinuri nobile și licori memorabile.</p>
-                            <span class="tap-hint">Apasă pentru detalii <i class="fas fa-arrow-right"></i></span>
-                        </div>
+                <a href="butasi-vin.html" class="categorie-card fade-in stagger-2">
+                    <img src="Img/vinbutoi.jpg" alt="Butași de Vin">
+                    <div class="categorie-overlay">
+                        <h3>Butași de Vin</h3>
+                        <p>Pentru vinuri nobile și licori memorabile</p>
+                        <span class="tap-hint">Vezi soiurile <i class="fas fa-arrow-right"></i></span>
                     </div>
                 </a>
             </div>
         </div>
     </section>
 
-    <footer id="contact" class="contact-section">
+    <!-- ========== TESTIMONIALE ========== -->
+    <section id="testimoniale" class="testimonials-section">
         <div class="content-wrapper">
-            <h2 class="main-title">Suntem la un mesaj distanță</h2>
-            <p class="main-subtitle">Alege metoda preferată de comunicare și hai să discutăm.</p>
-            <div class="glass-panel-container">
-                <div class="side-info map-side">
-                    <h3 class="map-title"><i class="fas fa-map-marked-alt"></i> Găsește-ne aici</h3>
-                    <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21706.022366852674!2d28.425495599999998!3d47.15290314999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cbc90018c83d89%3A0x67878f9940a063db!2sGt%E2%80%9DPuscasu%20Andrei!5e0!3m2!1sro!2s!4v1767385154631!5m2!1sro!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <h2 class="section-title fade-in">Ce Spun Clienții Noștri</h2>
+            <p class="section-subtitle fade-in">Peste 500 de grădini transformate cu butașii noștri</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in stagger-1">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">Am comandat 50 de butași de Fetească Neagră și Muscat Ottonel. Prinderea a fost aproape 100%, iar calitatea butașilor este excepțională. Recomand cu încredere!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">IC</div>
+                        <div class="testimonial-info">
+                            <h4>Ion Cojocaru</h4>
+                            <span>Orhei, Republica Moldova</span>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="side-form info-side">
-                    <div class="contact-data">
-                        <div class="data-item"><i class="fas fa-phone-alt"></i><span>069 705 404 / 060 010 332</span></div>
-                        <div class="data-item"><i class="fas fa-map-marker-alt"></i><span>r.Strășeni, s.Vorniceni, Republica Moldova</span></div>
-                        <div class="data-item"><i class="fas fa-envelope"></i><span>gt.puscasu.andrei@gmail.com</span></div>
+                <div class="testimonial-card fade-in stagger-2">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">De 3 ani cumpăr butași de la GȚ Pușcașu Andrei. Soiurile de masă sunt dulci și aromate exact cum promiteau. Livrarea rapidă și ambalarea profesionistă.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MP</div>
+                        <div class="testimonial-info">
+                            <h4>Mariana Popescu</h4>
+                            <span>Bălți, Republica Moldova</span>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
                     </div>
-                    <div class="social-footer-box">
-                        <h3>SOCIAL MEDIA & CHAT</h3>
-                        <div class="social-icons-wrapper">
-                            <button onclick="window.location.href='tel:+37360 010 332'" class="glass-btn phone"><i class="fas fa-phone-alt"></i></button>
-                            <a href="https://www.tiktok.com/@gt.puscasu.andrei?" target="_blank" class="glass-btn tiktok"><i class="fab fa-tiktok"></i></a>
+                </div>
+                <div class="testimonial-card fade-in stagger-3">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">Am plantat un hectar cu Cabernet Sauvignon și Merlot. Butașii au prins toți, iar acum avem o podgorie superbă. Mulțumim pentru consultanța oferită!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">VC</div>
+                        <div class="testimonial-info">
+                            <h4>Vasile Ciobanu</h4>
+                            <span>Căușeni, Republica Moldova</span>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in stagger-1">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">Butașii de Muscat Italia sunt cei mai buni pe care i-am avut. Strugurii sunt mari, dulci și foarte aromati. O să mai comand și anul viitor!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">ET</div>
+                        <div class="testimonial-info">
+                            <h4>Elena Toma</h4>
+                            <span>Chișinău, Republica Moldova</span>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in stagger-2">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">Serviciu excelent! Am primit butașii în 2 zile, ambalați perfect. Am plantat 30 de butași de Viorica și Rkatsiteli. Toți au prins fără probleme.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">DR</div>
+                        <div class="testimonial-info">
+                            <h4>Dumitru Rusu</h4>
+                            <span>Comrat, Republica Moldova</span>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in stagger-3">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">Am cumpărat butași premium (Avatar, Lamborghini) pentru grădina mea. Sunt soiuri rare și deosebite. Calitatea este pe măsura prețului!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">AM</div>
+                        <div class="testimonial-info">
+                            <h4>Andrei Marin</h4>
+                            <span>Soroca, Republica Moldova</span>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <p class="final-copy">© Pasiune pentru viticultură</p>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <footer id="contact" class="section-glass" style="--bg-image: url('../Img/grape.jpg');">
+        <div class="content-wrapper">
+            <h2 class="section-title fade-in">Suntem la un mesaj distanță</h2>
+            <p class="section-subtitle fade-in">Alege metoda preferată de comunicare și hai să discutăm</p>
+            <div class="contact-grid fade-in">
+                <div class="contact-map">
+                    <h3><i class="fas fa-map-marked-alt"></i> Găsește-ne aici</h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21706.022366852674!2d28.425495599999998!3d47.15290314999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cbc90018c83d89%3A0x67878f9940a063db!2sGt%E2%80%9DPuscasu%20Andrei!5e0!3m2!1sro!2s!4v1767385154631!5m2!1sro!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-data">
+                        <a href="tel:+37369705404" class="data-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>069 705 404 / 060 010 332</span>
+                        </a>
+                        <div class="data-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Vorniceni, Strășeni, Republica Moldova</span>
+                        </div>
+                        <a href="mailto:gt.puscasu.andrei@gmail.com" class="data-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>gt.puscasu.andrei@gmail.com</span>
+                        </a>
+                    </div>
+                    <div class="social-box">
+                        <h3>Social Media</h3>
+                        <div class="social-icons">
+                            <a href="tel:+37362192902" class="social-btn" title="Sună acum"><i class="fas fa-phone-alt"></i></a>
+                            <a href="https://www.tiktok.com/@gt.puscasu.andrei" target="_blank" class="social-btn" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="copyright">
+                 Pasiune pentru viticultură — GȚ Pușcașu Andrei © 2026
+            </p>
         </div>
     </footer>
 
-    <script src="cxstea2.js"></script>
+    <!-- ========== FLOATING CTA ========== -->
+    <div class="floating-cta">
+        <a href="tel:+37369705404" class="float-btn phone" title="Sună acum">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+       
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
-
 </html>
-
