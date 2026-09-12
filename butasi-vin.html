@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cart.css">
 </head>
 <body>
 
@@ -23,6 +24,7 @@
                 <li><a href="index.html#activitate" class="nav-link">Activitate</a></li>
                 <li><a href="index.html#soiuri" class="nav-link">Soiuri</a></li>
                 <li><a href="index.html#testimoniale" class="nav-link">Recenzii</a></li>
+                <li><a href="cos.html" class="nav-cart" title="Coșul meu de cumpărături"><i class="fas fa-shopping-cart"></i><span class="cart-badge hidden" data-cart-badge>0</span></a></li>
                 <li><a href="index.html#contact" class="nav-btn">Contact</a></li>
             </ul>
             <div class="nav-toggle" id="navToggle">
@@ -45,7 +47,7 @@
 
     <div class="product-grid">
 
-        <div class="product-card fade-in">
+        <div class="product-card fade-in" data-available="false">
             <div class="product-img-wrapper">
                 <img src="Vin/LeondorNegru.jpg" alt="Leondor Negru">
                 <span class="product-badge">În stoc</span>
@@ -60,7 +62,7 @@
             </div>
         </div>
 
-        <div class="product-card fade-in stagger-1">
+        <div class="product-card fade-in stagger-1" data-available="false">
             <div class="product-img-wrapper">
                 <img src="Vin/CrascaAgurdino.jpg" alt="Crasca Agurdino">
                 <span class="product-badge">În stoc</span>
@@ -75,7 +77,7 @@
             </div>
         </div>
 
-        <div class="product-card fade-in stagger-2">
+        <div class="product-card fade-in stagger-2" data-available="false">
             <div class="product-img-wrapper">
                 <img src="Vin/FeteascaNeagra.jpg" alt="Feteasca Neagră">
                 <span class="product-badge">În stoc</span>
@@ -90,7 +92,7 @@
             </div>
         </div>
 
-        <div class="product-card fade-in">
+        <div class="product-card fade-in" data-available="false">
             <div class="product-img-wrapper">
                 <img src="Vin/IzabelaCapsuna.jpg" alt="Izabela / Căpșună">
                 <span class="product-badge">În stoc</span>
@@ -105,7 +107,7 @@
             </div>
         </div>
 
-        <div class="product-card fade-in stagger-1">
+        <div class="product-card fade-in stagger-1" data-available="false">
             <div class="product-img-wrapper">
                 <img src="Vin/CabernetSauvignon.jpg" alt="Cabernet Sauvignon">
                 <span class="product-badge">În stoc</span>
@@ -120,7 +122,7 @@
             </div>
         </div>
 
-        <div class="product-card fade-in stagger-2">
+        <div class="product-card fade-in stagger-2" data-available="false">
             <div class="product-img-wrapper">
                 <img src="Vin/Merlot.jpg" alt="Merlot">
                 <span class="product-badge">În stoc</span>
@@ -135,7 +137,7 @@
             </div>
         </div>
 
-        <div class="product-card fade-in">
+        <div class="product-card fade-in" data-available="false">
             <div class="product-img-wrapper">
                 <img src="Vin/Saperave.jpg" alt="Saperave">
                 <span class="product-badge">În stoc</span>
@@ -150,7 +152,7 @@
             </div>
         </div>
 
-        <div class="product-card fade-in stagger-1">
+        <div class="product-card fade-in stagger-1" data-available="false">
             <div class="product-img-wrapper">
                 <img src="Vin/FeteascaRegala.jpg" alt="Fetească Regală">
                 <span class="product-badge">În stoc</span>
@@ -165,7 +167,7 @@
             </div>
         </div>
 
-        <div class="product-card fade-in stagger-2">
+        <div class="product-card fade-in stagger-2" data-available="false">
             <div class="product-img-wrapper">
                 <img src="Vin/MuscatOttonel.jpg" alt="Muscat Ottonel">
                 <span class="product-badge">În stoc</span>
@@ -180,7 +182,7 @@
             </div>
         </div>
 
-        <div class="product-card fade-in">
+        <div class="product-card fade-in" data-available="false">
             <div class="product-img-wrapper">
                 <img src="Vin/MuscatPoloskei.jpg" alt="Muscat Poloskei">
                 <span class="product-badge">În stoc</span>
@@ -195,7 +197,7 @@
             </div>
         </div>
 
-        <div class="product-card fade-in stagger-1">
+        <div class="product-card fade-in stagger-1" data-available="false">
             <div class="product-img-wrapper">
                 <img src="Vin/Cuderca.jpg" alt="Cudercă">
                 <span class="product-badge">În stoc</span>
@@ -210,7 +212,7 @@
             </div>
         </div>
 
-        <div class="product-card fade-in stagger-2">
+        <div class="product-card fade-in stagger-2" data-available="false">
             <div class="product-img-wrapper">
                 <img src="Vin/Floricica.jpg" alt="Floricică">
                 <span class="product-badge">În stoc</span>
@@ -225,7 +227,7 @@
             </div>
         </div>
 
-        <div class="product-card fade-in">
+        <div class="product-card fade-in" data-available="false">
             <div class="product-img-wrapper">
                 <img src="Vin/Aligote.jpg" alt="Aligote">
                 <span class="product-badge">În stoc</span>
@@ -240,7 +242,7 @@
             </div>
         </div>
 
-        <div class="product-card fade-in stagger-1">
+        <div class="product-card fade-in stagger-1" data-available="false">
             <div class="product-img-wrapper">
                 <img src="Vin/FragaAlba.jpg" alt="Fragă Albă">
                 <span class="product-badge">În stoc</span>
@@ -255,7 +257,7 @@
             </div>
         </div>
 
-        <div class="product-card fade-in stagger-2">
+        <div class="product-card fade-in stagger-2" data-available="false">
             <div class="product-img-wrapper">
                 <img src="Vin/Riesling.jpg" alt="Riesling">
                 <span class="product-badge">În stoc</span>
@@ -270,7 +272,7 @@
             </div>
         </div>
 
-        <div class="product-card fade-in">
+        <div class="product-card fade-in" data-available="false">
             <div class="product-img-wrapper">
                 <img src="Vin/Rkatsiteli.jpg" alt="Rkatsiteli">
                 <span class="product-badge">În stoc</span>
@@ -285,7 +287,7 @@
             </div>
         </div>
 
-        <div class="product-card fade-in stagger-1">
+        <div class="product-card fade-in stagger-1" data-available="false">
             <div class="product-img-wrapper">
                 <img src="Vin/Viorica.jpg" alt="Viorica">
                 <span class="product-badge">În stoc</span>
@@ -300,7 +302,7 @@
             </div>
         </div>
 
-        <div class="product-card fade-in stagger-2">
+        <div class="product-card fade-in stagger-2" data-available="false">
             <div class="product-img-wrapper">
                 <img src="Vin/Sovinion.jpg" alt="Sovinion">
                 <span class="product-badge">În stoc</span>
@@ -315,7 +317,7 @@
             </div>
         </div>
 
-        <div class="product-card fade-in">
+        <div class="product-card fade-in" data-available="false">
             <div class="product-img-wrapper">
                 <img src="Vin/Alb de Suruceni.jpg" alt="Alb de Suruceni">
                 <span class="product-badge">În stoc</span>
@@ -342,10 +344,15 @@
         <a href="tel:+37369705404" class="float-btn phone" title="Sună acum">
             <i class="fas fa-phone-alt"></i>
         </a>
+        <a href="cos.html" class="float-btn cart" title="Coșul meu de cumpărături">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-badge hidden" data-cart-badge>0</span>
+        </a>
        
     </div>
 
     <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
 </body>
 </html>
 
