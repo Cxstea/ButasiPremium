@@ -468,7 +468,8 @@ section {
     line-height: 1.8;
 }
 
-/* ========== CAROUSEL ========== */
+/* ========== CAROUSEL UNIFORM (TOATE DEVICE-URILE) ========== */
+/* ========== CAROUSEL UNIFORM (TOATE DEVICE-URILE) ========== */
 .carousel-wrapper {
     max-width: 1100px;
     margin: 0 auto;
@@ -481,34 +482,74 @@ section {
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-lg);
     border: 2px solid rgba(255,204,0,0.1);
+    aspect-ratio: 16 / 9;
+    background: #000;
+    width: 100%;
 }
 
 .carousel-track {
     display: flex;
-    transition: transform var(--transition-slow);
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
 }
 
 .carousel-slide {
     min-width: 100%;
-    height: 550px;
+    width: 100%;
+    height: 100%;
     position: relative;
     flex-shrink: 0;
+    overflow: hidden;
 }
 
+/* PC: imaginea umple complet chenarul */
 .carousel-slide img,
 .carousel-slide video {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+    display: block;
 }
 
-.video-split {
-    display: flex;
-    gap: 2px;
+/* Mobile: contain - vezi toată imaginea, fără zoom */
+@media (max-width: 767px) {
+    .carousel-container {
+        aspect-ratio: 1 / 1;
+    }
+    
+    .carousel-slide img {
+        object-fit: contain;
+        background: #000;
+    }
+    
+    .carousel-slide video {
+        object-fit: cover; /* video rămâne cover și pe mobil */
+    }
+    
+    .carousel-btn { 
+        width: 45px; 
+        height: 45px; 
+    }
+    
+    .carousel-btn.prev { left: 15px; }
+    .carousel-btn.next { right: 15px; }
+    
+    .video-split { 
+        flex-direction: column; 
+    }
+    
+    .video-split video { 
+        width: 100%; 
+        height: 50%; 
+    }
 }
 
-.video-split video { 
-    width: 50%; 
+@media (min-width: 768px) and (max-width: 1023px) {
+    .carousel-container {
+        aspect-ratio: 4 / 3;
+        
+    }
 }
 
 .carousel-btn {
@@ -518,7 +559,7 @@ section {
     width: 55px;
     height: 55px;
     border-radius: 50%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.6);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255,204,0,0.3);
     color: var(--gold);
@@ -537,13 +578,8 @@ section {
     transform: translateY(-50%) scale(1.1);
 }
 
-.carousel-btn.prev { 
-    left: 25px; 
-}
-
-.carousel-btn.next { 
-    right: 25px; 
-}
+.carousel-btn.prev { left: 25px; }
+.carousel-btn.next { right: 25px; }
 
 .carousel-dots {
     display: flex;
@@ -571,6 +607,23 @@ section {
 .carousel-dot:hover { 
     background: var(--gold-light); 
 }
+
+/* Video split */
+.video-split {
+    display: flex;
+    gap: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.video-split video { 
+    width: 50%; 
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+}
+
+
 
 /* ========== CATEGORII / SOIURI ========== */
 .categorii-grid {
@@ -1127,7 +1180,6 @@ section {
     justify-content: center;
 }
 
-
 /* ========== PRODUCT CAROUSEL / SLIDER ========== */
 .products-slider {
     position: relative;
@@ -1314,8 +1366,9 @@ section {
         font-size: 2rem; 
     }
 
-    .carousel-slide { 
-        height: 400px; 
+    /* Carousel uniform pe tabletă */
+    .carousel-container {
+        aspect-ratio: 4 / 3;
     }
 
     .carousel-btn { 
@@ -1410,8 +1463,10 @@ section {
         font-size: 2.8rem; 
     }
 
-    .carousel-slide { 
-        height: 280px; 
+    /* Carousel uniform pe mobil */
+    .carousel-container {
+        aspect-ratio: 4 / 3;
+        border-radius: var(--radius-sm);
     }
 
     .video-split { 
@@ -1484,5 +1539,21 @@ section {
     .fade-in {
         opacity: 1;
         transform: none;
+    }
+}
+
+/* Carusel optimizat pentru telefon */
+@media (max-width: 767px) {
+    .carousel-container {
+        aspect-ratio: 4 / 5;
+        border-radius: var(--radius-sm);
+    }
+
+    .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        background: #000;
     }
 }
