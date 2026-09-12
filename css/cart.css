@@ -1,0 +1,467 @@
+/* ==========================================================
+   COȘ DE CUMPĂRĂTURI – Butași Premium MD
+   ========================================================== */
+
+/* ---------- Iconița coșului din navbar ---------- */
+.nav-cart {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    padding: 6px 8px;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -4px;
+    right: -6px;
+    background: #e74c3c;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
+    pointer-events: none;
+}
+
+.cart-badge.hidden { display: none; }
+
+/* ---------- Buton coș plutitor ---------- */
+.float-btn.cart {
+    background: linear-gradient(135deg, #6a3fb5, #4a2a85);
+    position: relative;
+}
+.float-btn.cart:hover { transform: scale(1.08); }
+
+/* ---------- Informații stoc pe cardurile de produse ---------- */
+.stock-info {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin: 6px 0 2px;
+}
+
+.stock-info.in-stock  { color: #2e7d32; }
+.stock-info.out-stock { color: #c0392b; }
+
+/* ---------- Selector cantitate ---------- */
+.qty-selector {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.qty-btn {
+    width: 18px;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    background: #2e7d32;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s, transform .15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.qty-btn:hover { background: #1b5e20; transform: scale(1.06); }
+.qty-btn:active { transform: scale(.95); }
+
+.qty-selector.small .qty-btn {
+    width: 26px;
+    height: 26px;
+    font-size: .85rem;
+    border-radius: 6px;
+}
+
+.qty-input {
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #d5d5d5;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: .85rem;
+    font-weight: 600;
+    color: #222;
+    background: #fff;
+}
+
+.qty-selector.small .qty-input { height: 26px; width: 44px; }
+
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.qty-input { -moz-appearance: textfield; appearance: textfield; }
+
+/* ---------- Acțiuni produs (selector + buton) ---------- */
+.product-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.product-actions .add-cart-btn {
+    width: 100%;
+    white-space: nowrap;
+}
+
+@media (min-width: 480px) {
+    .product-actions {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .product-actions .add-cart-btn { width: auto; flex: 1; }
+}
+
+/* ---------- Notificare (toast) ---------- */
+.toast {
+    position: fixed;
+    bottom: 96px;
+    right: 20px;
+    z-index: 10000;
+    background: #2e7d32;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: .85rem;
+    font-weight: 500;
+    padding: 13px 22px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .28);
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+    max-width: calc(100vw - 40px);
+}
+
+.toast.show { opacity: 1; transform: translateY(0); }
+.toast.error { background: #c0392b; }
+
+/* ==========================================================
+   PAGINA COȘULUI (cos.html)
+   ========================================================== */
+.cart-header {
+    background: linear-gradient(rgba(18, 42, 18, .80), rgba(18, 42, 18, .80)),
+                url('../Img/grape.jpg') center / cover no-repeat;
+    padding: 150px 20px 70px;
+    text-align: center;
+    color: #fff;
+}
+
+.cart-header .back-link {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: .88rem;
+    margin-bottom: 14px;
+    opacity: .9;
+}
+
+.cart-header .back-link:hover { opacity: 1; text-decoration: underline; }
+
+.cart-header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 800;
+    margin: 10px 0;
+}
+
+.cart-header p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    opacity: .9;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.cart-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 45px 20px 90px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.cart-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    align-items: start;
+}
+
+@media (min-width: 920px) {
+    .cart-layout { grid-template-columns: 1.65fr 1fr; }
+}
+
+.cart-panel {
+    background: rgba(255, 255, 255, .94);
+    border-radius: 20px;
+    padding: 26px 28px;
+    box-shadow: 0 12px 45px rgba(0, 0, 0, .09);
+}
+
+.cart-panel h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 16px;
+    color: #1b3a1b;
+}
+
+/* ---------- Rând produs din coș ---------- */
+.cart-item {
+    display: grid;
+    grid-template-columns: 72px 1fr auto;
+    grid-template-areas:
+        "img info subtotal"
+        "img qty remove";
+    gap: 6px 16px;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item:last-child { border-bottom: none; }
+
+.cart-item-img {
+    grid-area: img;
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .12);
+}
+
+.cart-item-info { grid-area: info; }
+
+.cart-item-info h4 {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    font-size: .98rem;
+    font-weight: 700;
+    color: #1b3a1b;
+}
+
+.cart-item-price {
+    font-family: 'Poppins', sans-serif;
+    font-size: .8rem;
+    color: #666;
+    margin-top: 2px;
+}
+
+.cart-item-stock {
+    font-family: 'Poppins', sans-serif;
+    font-size: .72rem;
+    color: #2e7d32;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.cart-item .qty-selector { grid-area: qty; }
+
+.cart-item-subtotal {
+    grid-area: subtotal;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #1b3a1b;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.cart-item-subtotal span {
+    font-size: .75rem;
+    font-weight: 600;
+    color: #888;
+}
+
+.cart-item-remove {
+    grid-area: remove;
+    justify-self: end;
+    border: none;
+    background: #fdeceb;
+    color: #c0392b;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background .2s, transform .15s;
+    flex-shrink: 0;
+}
+
+.cart-item-remove:hover { background: #f5b7b1; transform: scale(1.06); }
+
+@media (max-width: 560px) {
+    .cart-item {
+        grid-template-columns: 60px 1fr auto;
+        grid-template-areas:
+            "img info remove"
+            "img qty subtotal";
+    }
+    .cart-item-img { width: 60px; height: 60px; }
+    .cart-item-subtotal { text-align: left; }
+}
+
+/* ---------- Coș gol ---------- */
+.cart-empty { text-align: center; padding: 50px 20px; }
+
+.cart-empty > i {
+    font-size: 3.2rem;
+    color: #cfd8cf;
+    margin-bottom: 18px;
+}
+
+.cart-empty h3 {
+    font-family: 'Poppins', sans-serif;
+    margin: 0 0 8px;
+    color: #1b3a1b;
+}
+
+.cart-empty p {
+    font-family: 'Poppins', sans-serif;
+    color: #777;
+    margin: 0 0 22px;
+    font-size: .92rem;
+}
+
+.cart-empty .btn { margin: 4px 6px; }
+
+/* ---------- Sumar comandă ---------- */
+.cart-summary-panel {
+    background: rgba(255, 255, 255, .94);
+    border-radius: 20px;
+    padding: 26px 28px;
+    box-shadow: 0 12px 45px rgba(0, 0, 0, .09);
+    position: sticky;
+    top: 100px;
+}
+
+.cart-summary-panel h3 {
+    font-family: 'Poppins', sans-serif;
+    margin: 0 0 18px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1b3a1b;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Poppins', sans-serif;
+    font-size: .92rem;
+    color: #555;
+    padding: 8px 0;
+}
+
+.summary-row.total {
+    border-top: 2px dashed #ddd;
+    margin-top: 10px;
+    padding-top: 14px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #1b3a1b;
+}
+
+.summary-row.total .summary-value { color: #2e7d32; }
+
+/* ---------- Formular comandă ---------- */
+.order-form { margin-top: 20px; }
+
+.order-form label {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: .8rem;
+    font-weight: 600;
+    color: #444;
+    margin: 12px 0 5px;
+}
+
+.order-form input,
+.order-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #d5d5d5;
+    border-radius: 10px;
+    padding: 11px 14px;
+    font-family: 'Poppins', sans-serif;
+    font-size: .9rem;
+    color: #222;
+    background: #fbfbf9;
+    transition: border .2s, box-shadow .2s;
+}
+
+.order-form input:focus,
+.order-form textarea:focus {
+    outline: none;
+    border-color: #2e7d32;
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, .12);
+}
+
+.order-form textarea { resize: vertical; min-height: 70px; }
+
+.cart-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.cart-actions .btn { width: 100%; text-align: center; }
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #25d366;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: .95rem;
+    border: none;
+    border-radius: 12px;
+    padding: 13px 20px;
+    cursor: pointer;
+    transition: background .2s, transform .15s;
+}
+
+.btn-whatsapp:hover { background: #1da851; transform: translateY(-2px); }
+
+.order-success {
+    display: none;
+    margin-top: 14px;
+    background: #e8f5e9;
+    border: 1px solid #a5d6a7;
+    color: #2e7d32;
+    font-family: 'Poppins', sans-serif;
+    font-size: .82rem;
+    border-radius: 10px;
+    padding: 12px 14px;
+}
+
+.link-clear {
+    background: none;
+    border: none;
+    color: #c0392b;
+    font-family: 'Poppins', sans-serif;
+    font-size: .82rem;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 4px;
+    padding: 6px 0;
+}
