@@ -1,4 +1,3 @@
-// ========== NAVBAR SCROLL EFFECT ==========
 const navbar = document.getElementById('navbar');
 
 function handleNavbarScroll() {
@@ -12,7 +11,6 @@ function handleNavbarScroll() {
 window.addEventListener('scroll', handleNavbarScroll);
 
 
-// ========== MOBILE MENU ==========
 const navToggle = document.getElementById('navToggle');
 const navMenu = document.getElementById('navMenu');
 
@@ -41,7 +39,6 @@ if (navToggle && navMenu) {
 }
 
 
-// ========== CAROUSEL ==========
 function initCarousel() {
     const track = document.getElementById('carouselTrack');
     if (!track) return;
@@ -58,7 +55,6 @@ function initCarousel() {
     let autoPlayTimeout = null;
     const slideDuration = 8000;
 
-    // Create dots
     if (dotsContainer) {
         dotsContainer.innerHTML = '';
         for (let i = 0; i < totalSlides; i++) {
@@ -117,7 +113,6 @@ function initCarousel() {
         prevBtn.addEventListener('click', prevSlide);
     }
 
-    // Pause on hover
     const carouselContainer = track.closest('.carousel-container');
     if (carouselContainer) {
         carouselContainer.addEventListener('mouseenter', () => {
@@ -129,7 +124,6 @@ function initCarousel() {
         });
     }
 
-    // Touch swipe
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -150,7 +144,6 @@ function initCarousel() {
         }
     }, { passive: true });
 
-    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') {
             prevSlide();
@@ -160,7 +153,6 @@ function initCarousel() {
         }
     });
 
-    // Initial state
     currentSlide = 0;
     track.style.transform = 'translateX(0%)';
     updateDots();
@@ -168,7 +160,6 @@ function initCarousel() {
 }
 
 
-// ========== SCROLL ANIMATIONS ==========
 function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
@@ -189,7 +180,6 @@ function initScrollAnimations() {
 }
 
 
-// ========== SMOOTH SCROLL FOR ANCHOR LINKS ==========
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
@@ -207,7 +197,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 
-// ========== LAZY LOAD IMAGES ==========
 function initLazyLoad() {
     const lazyImages = document.querySelectorAll('img[data-src]');
 
@@ -235,7 +224,6 @@ function initLazyLoad() {
 }
 
 
-// ========== TESTIMONIALS CAROUSEL ==========
 function initTestimonialCarousel() {
     const container = document.querySelector('.testimonials-carousel');
     if (!container) return;
@@ -258,7 +246,6 @@ function initTestimonialCarousel() {
 }
 
 
-// ========== PRODUCT SLIDER ==========
 function initProductSlider() {
     const slider = document.querySelector('.products-slider');
     if (!slider) return;
@@ -276,7 +263,6 @@ function initProductSlider() {
     const totalSlides = slides.length;
     const pageId = slider.dataset.page || 'shop';
 
-    // Create dots
     if (dotsContainer) {
         dotsContainer.innerHTML = '';
         for (let i = 0; i < totalSlides; i++) {
@@ -366,7 +352,6 @@ function initProductSlider() {
         }
     });
 
-    // Touch swipe
     let touchStartX = 0;
     let touchEndX = 0;
     let touchStartY = 0;
@@ -390,7 +375,6 @@ function initProductSlider() {
         }
     }, { passive: true });
 
-    // Check URL hash on load
     const hash = window.location.hash;
     if (hash && hash.startsWith('#slide-')) {
         const slideNum = parseInt(hash.replace('#slide-', '')) - 1;
@@ -408,7 +392,6 @@ function initProductSlider() {
 }
 
 
-// ========== INITIALIZE ALL ==========
 document.addEventListener('DOMContentLoaded', () => {
     initCarousel();
     initScrollAnimations();
@@ -419,7 +402,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// ========== RE-INIT ANIMATIONS ==========
 window.reinitAnimations = function() {
     initScrollAnimations();
 };
