@@ -1557,3 +1557,32 @@ section {
         background: #000;
     }
 }
+
+/* ========== TEMPERATURĂ REZISTENȚĂ (stânga sus pe card) ========== */
+.temp-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 14px;
+    background: rgba(10, 10, 10, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 204, 0, 0.45);
+    border-radius: var(--radius-sm);
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    line-height: 1.2;
+    box-shadow: var(--shadow-sm);
+}
+
+.temp-badge i {
+    color: #7fd4ff;
+    font-size: 0.85rem;
+    text-shadow: 0 0 8px rgba(127, 212, 255, 0.6);
+}

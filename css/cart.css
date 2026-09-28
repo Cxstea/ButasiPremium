@@ -465,3 +465,111 @@
     margin-top: 4px;
     padding: 6px 0;
 }
+
+/* ==========================================================
+   ALEGERE CANAL TRIMITERE COMANDĂ (WhatsApp / Telegram / Viber / Gmail)
+   ========================================================== */
+.order-form .channel-selector {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 8px 0 18px;
+}
+
+.order-form .channel-option {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* ascundem butonul radio standard */
+.order-form .channel-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    pointer-events: none;
+}
+
+.order-form .channel-btn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 14px 8px;
+    background: #fff;
+    border: 2px solid #e2e2e2;
+    border-radius: 14px;
+    color: #333;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.2;
+    transition: all 0.25s ease;
+}
+
+.order-form .channel-btn i {
+    font-size: 1.7rem;
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+/* culoarea fiecărei aplicații */
+.order-form .channel-whatsapp { --c: #25d366; }
+.order-form .channel-telegram { --c: #229ed9; }
+.order-form .channel-viber    { --c: #7360f2; }
+.order-form .channel-gmail    { --c: #ea4335; }
+
+.order-form .channel-btn i { color: var(--c); }
+
+/* hover */
+.order-form .channel-option:hover .channel-btn {
+    border-color: var(--c);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* selectat */
+.order-form .channel-option input:checked + .channel-btn {
+    background: var(--c);
+    border-color: var(--c);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.order-form .channel-option input:checked + .channel-btn i {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* bifă în colțul cardului selectat */
+.order-form .channel-option input:checked + .channel-btn::after {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    font-size: 0.7rem;
+    color: #fff;
+}
+
+/* accesibilitate (navigare cu tastatura) */
+.order-form .channel-option input:focus-visible + .channel-btn {
+    outline: 3px solid rgba(255, 204, 0, 0.7);
+    outline-offset: 2px;
+}
+
+/* butonul de trimitere preia culoarea canalului ales */
+.order-form:has(input[value="telegram"]:checked) .btn-whatsapp { background: #229ed9; }
+.order-form:has(input[value="telegram"]:checked) .btn-whatsapp:hover { background: #1a86ba; }
+.order-form:has(input[value="viber"]:checked) .btn-whatsapp { background: #7360f2; }
+.order-form:has(input[value="viber"]:checked) .btn-whatsapp:hover { background: #5b49d1; }
+.order-form:has(input[value="gmail"]:checked) .btn-whatsapp { background: #ea4335; }
+.order-form:has(input[value="gmail"]:checked) .btn-whatsapp:hover { background: #c5362a; }
