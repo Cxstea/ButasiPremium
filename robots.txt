@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /cos.html
+
+Sitemap: https://butasipremium.com/sitemap.xml
