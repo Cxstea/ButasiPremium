@@ -469,7 +469,6 @@ section {
 }
 
 /* ========== CAROUSEL UNIFORM (TOATE DEVICE-URILE) ========== */
-/* ========== CAROUSEL UNIFORM (TOATE DEVICE-URILE) ========== */
 .carousel-wrapper {
     max-width: 1100px;
     margin: 0 auto;
@@ -548,7 +547,6 @@ section {
 @media (min-width: 768px) and (max-width: 1023px) {
     .carousel-container {
         aspect-ratio: 4 / 3;
-        
     }
 }
 
@@ -622,8 +620,6 @@ section {
     object-fit: cover;
     position: relative;
 }
-
-
 
 /* ========== CATEGORII / SOIURI ========== */
 .categorii-grid {
@@ -1178,6 +1174,54 @@ section {
     display: flex;
     gap: 10px;
     justify-content: center;
+}
+
+/* ========== SOIURI EPUIZATE (data-available="false") ========== */
+.product-card[data-available="false"] {
+    border-color: rgba(192,57,43,0.7);
+}
+
+.product-card[data-available="false"]:hover {
+    border-color: #c0392b;
+    box-shadow: 0 25px 60px rgba(192,57,43,0.25);
+}
+
+.product-card[data-available="false"] .product-img-wrapper img {
+    filter: grayscale(0.7) brightness(0.75);
+}
+
+.product-card[data-available="false"] .product-badge {
+    background: #c0392b;
+    color: #fff;
+}
+
+.product-card[data-available="false"] .product-title,
+.product-card[data-available="false"] .product-price {
+    color: #e74c3c;
+}
+
+/* ascunde orice buton de comandă / coș / cantitate pe cardurile epuizate */
+.product-card[data-available="false"] .product-actions > *:not(.sold-out-label) {
+    display: none !important;
+}
+
+.sold-out-label {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #c0392b;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 12px 20px;
+    border-radius: var(--radius-xl);
+    cursor: not-allowed;
+    user-select: none;
 }
 
 /* ========== PRODUCT CAROUSEL / SLIDER ========== */
