@@ -6,7 +6,7 @@
 
     var ORDER_PHONE = '37360010332';
     var ORDER_PHONE_DISPLAY = '060 010 332';
-    var ORDER_EMAIL = 'gt.puscasu.andrei@gmail.com'; 
+    var ORDER_EMAIL = 'gt.puscasu.andrei@gmail.com';
 
     function getCart() {
         try { return JSON.parse(localStorage.getItem(CART_KEY)) || {}; }
@@ -241,11 +241,28 @@
             okMsg = 'Comanda a fost copiată! Am deschis Telegram – lipește mesajul în chat (Ctrl+V / apăsare lungă → Lipește) și apasă „Trimite".';
 
         } else if (channel === 'viber') {
+            // 1) Copiem ÎNTOTDEAUNA mesajul complet (plasă de siguranță)
             copyText(msg, function () {
-                showToast('Comanda a fost copiată – lipește-o în chat și trimite.');
+                showToast('Comanda a fost copiată – dacă nu apare în chat, lipește-o.');
             });
-            window.location.href = 'viber://chat?number=%2B' + ORDER_PHONE;
-            okMsg = 'Comanda a fost copiată! Am deschis Viber – lipește mesajul în chat și apasă „Trimite".';
+
+            // 2) Încercăm completarea automată cu o versiune compactă (fără emoji,
+            //    diacritice sau simboluri speciale), ca URL-ul să rămână scurt
+            var viberUrl = 'viber://chat?number=%2B' + ORDER_PHONE;
+            var encoded = encodeURIComponent(toPlain(msg));
+            var autoFilled = isMobile() && encoded.length <= 1500;
+
+            if (autoFilled) {
+                viberUrl += '&draft=' + encoded;
+            }
+
+            window.location.href = viberUrl;
+
+            okMsg = autoFilled
+                ? 'Am deschis Viber cu mesajul completat – verifică-l și apasă „Trimite". ' +
+                  'Dacă lipsește ceva, lipește mesajul complet copiat (apăsare lungă → Lipește).'
+                : 'Comanda a fost copiată! Am deschis Viber – lipește mesajul în chat ' +
+                  '(Ctrl+V / apăsare lungă → Lipește) și apasă „Trimite".';
 
         } else if (channel === 'gmail') {
             var subject = 'Comandă nouă – Butași Premium MD';
@@ -379,6 +396,17 @@
         if (info.notes) lines.push('Observații: ' + info.notes);
 
         return lines.join('\n');
+    }
+
+    // Versiune simplă a mesajului: fără diacritice, emoji sau simboluri speciale
+    function toPlain(s) {
+        return String(s)
+            .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+            .replace(/[—–]/g, '-')
+            .replace(/×/g, 'x')
+            .replace(/\*/g, '')
+            .replace(/[^\x00-\x7F]/g, '')
+            .replace(/^\s+/, '');
     }
 
     function copyText(text, onOk) {
