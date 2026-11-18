@@ -241,13 +241,12 @@
             okMsg = 'Comanda a fost copiată! Am deschis Telegram – lipește mesajul în chat (Ctrl+V / apăsare lungă → Lipește) și apasă „Trimite".';
 
         } else if (channel === 'viber') {
-            // 1) Copiem ÎNTOTDEAUNA mesajul complet (plasă de siguranță)
+           
             copyText(msg, function () {
                 showToast('Comanda a fost copiată – dacă nu apare în chat, lipește-o.');
             });
 
-            // 2) Încercăm completarea automată cu o versiune compactă (fără emoji,
-            //    diacritice sau simboluri speciale), ca URL-ul să rămână scurt
+        
             var viberUrl = 'viber://chat?number=%2B' + ORDER_PHONE;
             var encoded = encodeURIComponent(toPlain(msg));
             var autoFilled = isMobile() && encoded.length <= 1500;
